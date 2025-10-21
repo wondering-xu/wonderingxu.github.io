@@ -1,0 +1,64 @@
+name: Deploy Hexo site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'source/_posts/**'
+      - 'source/pages/**'
+      - 'source/assets/**'
+      - '_config.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'pnpm-lock.yaml'
+      - 'yarn.lock'
+      - 'themes/**'
+      - 'scaffolds/**'
+      - 'scripts/**'
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to wondering-xu.github.io
+    runs-on: ubuntu-latest
+    concurrency:
+      group: hexo-deploy
+      cancel-in-progress: true
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+
+      - name: Build site with Hexo
+        env:
+          NODE_ENV: production
+        run: |
+          npx --yes hexo clean
+          npx --yes hexo generate
+
+      - name: Deploy to wondering-xu.github.io
+        # Requires repository secret GH_TOKEN (a PAT with repo permissions) or use ACTIONS_DEPLOY_KEY
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_TOKEN }}
+          external_repository: wondering-xu/wondering-xu.github.io
+          publish_branch: main
+          publish_dir: ./public
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: chore(deploy): ${{ github.sha }}
