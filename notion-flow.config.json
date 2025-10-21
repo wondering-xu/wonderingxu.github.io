@@ -1,0 +1,15 @@
+{
+  "filter": { "property": "Status", "equals": "Published" },
+  "filename": "{date:YYYY-MM-DD}-{slug}.md",
+  "frontMatter": {
+    "title": "Title",
+    "slug": "Slug",
+    "date": "Date",
+    "tags": "Tags",
+    "description": "Summary",
+    "cover": "Cover"
+  },
+  "defaults": { "layout": "post" },
+  "output": { "root": "source/_posts" },
+  "notes": "此文件仅为参考示例，具体字段名与路径请根据你的同步脚本实现进行调整。"
+}
