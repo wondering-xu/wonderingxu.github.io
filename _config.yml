@@ -5,8 +5,19 @@ url: https://wondering-xu.github.io
 root: /
 permalink: posts/:year/:month/:day/:title/
 
+# Theme (installed during CI)
+theme: landscape
+
 # Post filename pattern to align with Notion Flow output
 new_post_name: :year-:month-:day-:title.md
+
+# Index/archives paths to avoid clashing with static source/index.html and source/archives/
+index_generator:
+  path: posts
+archive_dir: post-archives
+
+# Asset handling
+post_asset_folder: false
 
 # Do not render static HTML and asset directories; copy as-is to public/
 skip_render:
