@@ -1,0 +1,12 @@
+# Hexo configuration (minimal) to align with Notion Flow → Hexo → GitHub Pages
+
+# Site
+url: https://wondering-xu.github.io
+root: /
+permalink: posts/:year/:month/:day/:title/
+
+# Post filename pattern to align with Notion Flow output
+new_post_name: :year-:month-:day-:title.md
+
+# Ensure nothing is skipped during rendering
+skip_render: []
