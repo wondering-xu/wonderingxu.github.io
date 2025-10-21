@@ -1,4 +1,4 @@
-# Hexo configuration (minimal) to align with Notion Flow → Hexo → GitHub Pages
+# Hexo configuration to serve static snapshot from source/ and prevent overwriting online site
 
 # Site
 url: https://wondering-xu.github.io
@@ -8,5 +8,14 @@ permalink: posts/:year/:month/:day/:title/
 # Post filename pattern to align with Notion Flow output
 new_post_name: :year-:month-:day-:title.md
 
-# Ensure nothing is skipped during rendering
-skip_render: []
+# Do not render static HTML and asset directories; copy as-is to public/
+skip_render:
+  - index.html
+  - about/**
+  - guestbook/**
+  - css/**
+  - assets/**
+  - '**/*.html'
+
+# Disable local hexo deploy; deployments should be manual or via workflow
+deploy: {}
