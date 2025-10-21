@@ -2,18 +2,25 @@
 .DS_Store
 Thumbs.db
 
-# Node/Hexo
-node_modules/
-public/
-.deploy*/
-.npmrc
-
-# Editors
-.vscode/
-.idea/
-
 # Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Node
+node_modules/
+
+# Hexo build output
+public/
+.deploy*/
+
+# Hexo caches
+.cache/
+db.json
+
+# Editor
+.vscode/
+.idea/
+*.swp
