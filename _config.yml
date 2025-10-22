@@ -4,6 +4,7 @@
 url: https://wondering-xu.github.io
 root: /
 permalink: posts/:year/:month/:day/:title/
+theme: custom
 
 # Post filename pattern to align with Notion Flow output
 new_post_name: :year-:month-:day-:title.md
@@ -15,7 +16,9 @@ skip_render:
   - guestbook/**
   - css/**
   - assets/**
-  - '**/*.html'
+  - js/**
+  - photos/**
+  - search/**
 
 # Disable local hexo deploy; deployments should be manual or via workflow
 deploy: {}
