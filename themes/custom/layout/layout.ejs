@@ -1,3 +1,6 @@
+<%#
+  [LAYOUT] 页面骨架入口。封面调用遵循 front-matter cover > data-cover > 默认 /assets/img/covers/*.webp；如需页面级背景，可在 head 注入自定义 <style>:root { --bg-page: url('/assets/img/covers/home.webp'); /* 可同步设置 --page-bg 兼容 */ }</style>，与 source/css/styles.css 中 [BG] 渐层叠加。
+%>
 <!DOCTYPE html>
 <html lang="<%= (page.lang || config.language || 'en').toString().split('_')[0] %>">
 <head>
@@ -22,7 +25,7 @@
 </head>
 <body id="container" class="layout-<%= page.layout || 'default' %>">
   <div class="site-shell">
-    <%# Update navigation links inside themes/custom/layout/partial/navbar.ejs to match your site information %>
+    <%# [SLOT] 布局插槽顺序：导航 partial → 页面正文 <%- body %> → 页脚 partial，可按需替换。 %>
     <%- partial('partial/navbar', { page }) %>
     <main class="site-main" role="main">
       <%- body %>
