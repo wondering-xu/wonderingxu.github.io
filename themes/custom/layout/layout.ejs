@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="<%= (page.lang || config.language || 'en').toString().split('_')[0] %>">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= page.title ? page.title + ' · ' + (config.title || 'Hexo') : (config.title || 'Hexo') %></title>
+  <% if (page.description || config.description) { %>
+  <meta name="description" content="<%= page.description || config.description %>">
+  <% } %>
+  <% if (config.keyword || config.keywords) { %>
+  <meta name="keywords" content="<%= config.keyword || (Array.isArray(config.keywords) ? config.keywords.join(',') : config.keywords) %>">
+  <% } %>
+  <link rel="alternate" href="<%= url_for('/atom.xml') %>" title="<%= config.title %>" type="application/atom+xml">
+  <link rel="icon" href="<%= url_for(config.favicon || '/favicon.png') %>">
+  <link rel="stylesheet" href="<%= url_for('/css/styles.css?v=theme-1') %>">
+  <link rel="stylesheet" href="<%= url_for('/fancybox/jquery.fancybox.min.css') %>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+  <% if (theme && theme.headScripts) { %>
+    <%- theme.headScripts %>
+  <% } %>
+</head>
+<body id="container" class="layout-<%= page.layout || 'default' %>">
+  <div class="site-shell">
+    <%# Update navigation links inside themes/custom/layout/partial/navbar.ejs to match your site information %>
+    <%- partial('partial/navbar', { page }) %>
+    <main class="site-main" role="main">
+      <%- body %>
+    </main>
+    <%- partial('partial/footer', { page }) %>
+  </div>
+  <script src="<%= url_for('/js/jquery-3.6.4.min.js') %>"></script>
+  <script src="<%= url_for('/fancybox/jquery.fancybox.min.js') %>"></script>
+  <script src="<%= url_for('/js/script.js') %>"></script>
+  <% if (config.analytics) { %>
+    <%- config.analytics %>
+  <% } %>
+</body>
+</html>

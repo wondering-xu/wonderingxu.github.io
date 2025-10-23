@@ -1,0 +1,20 @@
+<%# Update coverImage logic below if you need a different hero cover fallback %>
+<% const formattedDate = page.date ? date(page.date, 'YYYY-MM-DD') : null; %>
+<% const coverMatch = (page.content || '').match(/data-cover="([^"]+)"/i); %>
+<% const coverImage = page.cover || (coverMatch && coverMatch[1]) || '/assets/img/bg-post.webp'; %>
+<article class="post">
+  <% if (coverImage) { %>
+  <div class="post-hero" style="background-image: linear-gradient(180deg, rgba(17, 24, 39, 0.45), rgba(17, 24, 39, 0.65)), url('<%= url_for(coverImage) %>');">
+    <span class="post-hero-label">Featured</span>
+  </div>
+  <% } %>
+  <header class="post-header">
+    <h1 class="post-title"><%= page.title %></h1>
+    <% if (formattedDate) { %>
+    <time class="post-meta" datetime="<%= date(page.date, 'YYYY-MM-DD') %>"><%= formattedDate %></time>
+    <% } %>
+  </header>
+  <div class="post-body">
+    <%- page.content %>
+  </div>
+</article>

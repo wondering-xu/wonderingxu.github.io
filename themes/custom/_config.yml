@@ -1,0 +1,3 @@
+# Theme-level configuration placeholder
+# Add custom variables here and reference them via the `theme` helper inside templates.
+headScripts: 
