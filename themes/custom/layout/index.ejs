@@ -1,3 +1,6 @@
+<%#
+  [PAGE] 首页列表卡片；封面继承 front-matter cover > 正文 data-cover > 默认 /assets/img/bg-post.webp，可在 Notion Flow front-matter 中指向 /assets/img/covers/home-*.webp 以贴合样式。
+%>
 <% const posts = page.posts && page.posts.length ? page.posts : site.posts; %>
 <% const postItems = posts && posts.each ? posts.toArray() : posts; %>
 <% if (postItems && postItems.length) { %>

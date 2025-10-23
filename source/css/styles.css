@@ -1,3 +1,6 @@
+/*
+  [THEME] 全局主题变量入口；可在页面 head 注入 :root { --bg-page: ... }（或别名 --page-bg）以替换背景，同时调整配色与圆角保持视觉一致。
+*/
 :root {
   color-scheme: light dark;
   --bg-page: #0f172a;
@@ -19,6 +22,9 @@
   box-sizing: border-box;
 }
 
+/*
+  [TYPO] 基础排版设置，可在此替换字体栈或字重，确保页面正文与 <%- page.content %> 输出的 Markdown 风格一致。
+*/
 html,
 body {
   margin: 0;
@@ -29,6 +35,9 @@ body {
   min-height: 100%;
 }
 
+/*
+  [BG] 页面背景叠层；如需调整渐层淡化或透明度，这里结合 --bg-page 形成最终效果，可针对活动页替换渐层颜色或角度。
+*/
 body::before {
   content: "";
   position: fixed;
@@ -184,12 +193,18 @@ body::after {
   gap: 48px;
 }
 
+/*
+  [GRID] 首页与列表布局；通过调整 grid-template-columns/gap 控制卡片数量与留白，以适配不同屏宽。
+*/
 .post-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
 
+/*
+  [CARD] 文章卡片样式；更换列表封面尺寸时请同步调整 min-height、box-shadow 及 hover 效果，确保 cover 使用 /assets/img/covers/*.webp。
+*/
 .post-card {
   position: relative;
   border-radius: var(--radius-lg);
@@ -389,6 +404,9 @@ body::after {
   line-height: 1.7;
 }
 
+/*
+  [FOOTER] 页脚与水印样式；可新增 .site-watermark { ... } 控制水印图层，并在此模块挂载 UV 统计徽章或链接。
+*/
 .site-footer {
   margin-top: 32px;
   background: rgba(15, 23, 42, 0.5);

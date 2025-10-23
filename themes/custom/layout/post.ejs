@@ -1,4 +1,6 @@
-<%# Update coverImage logic below if you need a different hero cover fallback %>
+<%#
+  [POST] 文章模板封面优先级：front-matter cover > 正文 data-cover > 默认 /assets/img/bg-post.webp；替换路径建议放在 /assets/img/covers/ 下并保持 WebP 或 AVIF 以配合首页卡片渐层。
+%>
 <% const formattedDate = page.date ? date(page.date, 'YYYY-MM-DD') : null; %>
 <% const coverMatch = (page.content || '').match(/data-cover="([^"]+)"/i); %>
 <% const coverImage = page.cover || (coverMatch && coverMatch[1]) || '/assets/img/bg-post.webp'; %>
