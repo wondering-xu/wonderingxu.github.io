@@ -1,13 +1,1 @@
-<%#
-  [PAGE] 通用页面容器；配合 front-matter cover/data-cover 走 [LAYOUT] 封面链路，静态内容会注入 <%- page.content %> 位置，可直接在 Markdown 内写原生 HTML 控制排版。
-%>
-<section class="page">
-  <% if (page.title) { %>
-  <header class="page-header">
-    <h1 class="page-title"><%= page.title %></h1>
-  </header>
-  <% } %>
-  <div class="page-body">
-    <%- page.content %>
-  </div>
-</section>
+<%- page.content %>
