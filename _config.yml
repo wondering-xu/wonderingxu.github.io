@@ -11,14 +11,15 @@ new_post_name: :year-:month-:day-:title.md
 
 # Do not render static HTML and asset directories; copy as-is to public/
 skip_render:
-  - index.html
-  - about/**
-  - guestbook/**
-  - css/**
-  - assets/**
-  - js/**
-  - photos/**
-  - search/**
+  - "index.html"
+  - "about/**"
+  - "guestbook/**"
+  - "search/**"
+  - "photos/**"
+  - "css/**"
+  - "assets/**"
+  - "js/**"
+  - "**/*.html"
 
 # Disable local hexo deploy; deployments should be manual or via workflow
 deploy: {}
