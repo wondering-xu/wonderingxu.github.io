@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <!-- Head tag -->
   <head>
   <meta charset="utf-8">
@@ -8,12 +8,14 @@
 
   <!-- Title -->
   
-  <title>废土世界</title>
+  <title>Hello World - 废土世界</title>
 
   <!--Favicon-->
-  <link rel="icon" href="/favicon/favicon.ico">
+  <link rel="icon" href="favicon/favicon.ico">
 
   <!--Description-->
+  
+      <meta name="description" content="Welcome to废土世界! This is my very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in tro">
   
 
   <!--Author-->
@@ -39,9 +41,7 @@
   <!-- Google Analytics -->
   
 
-<meta name="generator" content="Hexo 7.3.0">
-  <style>:root{--page-bg:url('/assets/img/bg-home.webp');--page-bg-repeat:repeat;--page-bg-size:auto}</style>
-</head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
   <body>
@@ -80,40 +80,32 @@
 </nav>
 
 
-          <div class="post-grid">
-            <!--
-              🖼️ 封面图自定义说明：
-              - 将封面图放在 /assets/img/covers/ 下（推荐 WebP，宽度 ≥ 1200px）
-              - 在每篇文章的 data-cover="/assets/img/covers/你的图片.webp" 属性中替换为对应文件名，实现独立封面
-              - 如果省略 data-cover，将自动回退到默认封面 /assets/img/bg-post.webp
-            -->
-            <a class="post-card" href="/2025/08/05/Hello-World-1/" data-cover="/assets/img/covers/hello-world-1.webp">
-              <div class="post-cover">
-                <div class="post-meta">
-                  <h3>Hello World</h3>
-                  <time datetime="2025-08-05">2025-08-05</time>
-                </div>
-              </div>
-            </a>
+          <div class="row">
+              <div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Hello World">
+</div>
+<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>Hello World</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <p>Welcome to废土世界! This is my very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-            <a class="post-card" href="/2025/07/23/hello-world/" data-cover="/assets/img/covers/hello-world.webp">
-              <div class="post-cover">
-                <div class="post-meta">
-                  <h3>Hello World</h3>
-                  <time datetime="2025-07-23">2025-07-23</time>
-                </div>
-              </div>
-            </a>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-            <a class="post-card" href="/2025/07/23/Hello-World-0/" data-cover="/assets/img/covers/hello-world-0.webp">
-              <div class="post-cover">
-                <div class="post-meta">
-                  <h3>Hello World</h3>
-                  <time datetime="2025-07-23">2025-07-23</time>
-                </div>
-              </div>
-            </a>
-          </div>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+</div>
+
+
+      </div>
       
       </div>
 
@@ -121,7 +113,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="/js/cover.js?v=post-card-overlay-20251022"></script>
     <footer class="site-watermark" aria-label="网站水印与访问计数">
       <span class="brand">@废废</span>
       <span class="divider"> · </span>
@@ -142,6 +133,7 @@
         var t=0,i=setInterval(function(){t+=200;showUV();if(t>=3000){clearInterval(i)}},200);
       })();
     </script>
+
 
 
   </body>

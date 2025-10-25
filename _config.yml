@@ -22,5 +22,5 @@ skip_render:
   - "**/*.html"
 
 # Disable local hexo deploy; deployments should be manual or via workflow
-deploy:
-  type: ''
+# deploy:
+#   type: ''
