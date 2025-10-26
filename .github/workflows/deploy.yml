@@ -6,16 +6,8 @@ on:
       - main
     paths:
       - 'source/_posts/**'
-      - 'source/pages/**'
       - 'source/assets/**'
-      - '_config.yml'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'pnpm-lock.yaml'
-      - 'yarn.lock'
-      - 'themes/**'
-      - 'scaffolds/**'
-      - 'scripts/**'
+      - 'assets/**'
 
 jobs:
   build-and-deploy:
