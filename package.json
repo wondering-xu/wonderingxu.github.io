@@ -1,0 +1,32 @@
+{
+  "name": "wondering-xu-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hexo source for wondering-xu.github.io synced from Notion Flow",
+  "license": "MIT",
+  "scripts": {
+    "clean": "hexo clean",
+    "build": "hexo generate",
+    "serve": "hexo server",
+    "deploy": "hexo deploy"
+  },
+  "dependencies": {
+    "hexo": "^8.0.0",
+    "hexo-cli": "^4.3.2",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "hexo": {
+    "version": "8.0.0"
+  }
+}

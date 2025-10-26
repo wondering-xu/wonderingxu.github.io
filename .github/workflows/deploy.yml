@@ -5,9 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'source/_posts/**'
-      - 'source/pages/**'
-      - 'source/assets/**'
+      - 'source/**'
       - '_config.yml'
       - 'package.json'
       - 'package-lock.json'
@@ -48,8 +46,8 @@ jobs:
         env:
           NODE_ENV: production
         run: |
-          npx --yes hexo clean
-          npx --yes hexo generate
+          npx hexo clean
+          npx hexo generate
 
       - name: Deploy to wondering-xu.github.io
         # Requires repository secret GH_TOKEN (a PAT with repo permissions) or use ACTIONS_DEPLOY_KEY
