@@ -41,21 +41,34 @@ Static HTML lives directly under `source/` and is skipped during rendering so it
    npm install -g hexo-cli
    ```
    (Alternatively, run the commands below with `npx hexo ...`.)
-2. In the repository root, run:
+2. Install the project dependencies:
    ```bash
-   hexo clean
-   hexo generate
-   hexo server
+   npm install
    ```
-3. Visit <http://localhost:4000/>. The routes `/`, `/about/`, `/guestbook/`, `/photos/`, and `/search/` should match the production site because the HTML is copied as-is.
-4. If you do not see updates immediately, use a private/incognito window or perform a hard refresh (Cmd/Ctrl + Shift + R). Pay attention to case sensitivity when linking assets—GitHub Pages is case-sensitive.
+3. In the repository root, run:
+   ```bash
+   npx hexo clean
+   npx hexo generate
+   npx hexo server
+   ```
+4. Visit <http://localhost:4000/>. The routes `/`, `/about/`, `/guestbook/`, `/photos/`, and `/search/` should match the production site because the HTML is copied as-is.
+5. If you do not see updates immediately, use a private/incognito window or perform a hard refresh (Cmd/Ctrl + Shift + R). Pay attention to case sensitivity when linking assets—GitHub Pages is case-sensitive.
 
-## Deployment strategy
+## Deployment workflow
 
-Automatic `hexo deploy` is disabled to avoid accidental pushes to production. Recommended workflow:
+Any push to `main` that touches content (for example `source/_posts/**`, `source/pages/**`, `source/assets/**`, or theme files) automatically triggers the **Deploy Hexo site** GitHub Actions workflow. The job performs the following steps:
 
-1. Commit your Markdown/content updates in this repository.
-2. Trigger the GitHub Actions workflow manually when you are ready to publish. The workflow will build with `hexo generate` and push the contents of `public/` to the live `wondering-xu/wondering-xu.github.io` repository.
-3. Review the published site after the workflow completes.
+1. Check out the repository and install Node.js 20.
+2. Install Hexo dependencies via `npm ci` (or `npm install` when no lockfile exists).
+3. Run `hexo clean` followed by `hexo generate` to create the static site in `public/`.
+4. Publish `public/` to the live repository `wondering-xu/wondering-xu.github.io` using `peaceiris/actions-gh-pages`.
 
-Avoid pushing directly to the production repository or re-enabling automatic deploy hooks—keeping deployment manual prevents unintentional overwrites of the live site.
+Populate the repository secret `GH_TOKEN` (or configure `ACTIONS_DEPLOY_KEY`) with credentials that can push to `wondering-xu/wondering-xu.github.io`. The workflow typically finishes within 1–3 minutes of a push. Local deployment scripts remain available for debugging, but day-to-day publishing happens through CI.
+
+## Notion Flow integration
+
+* Notion Flow should export Markdown with YAML front matter to `source/_posts/{date}-{slug}.md`.
+* Provide the fields `title`, `slug`, `date`, `tags`, `summary`, and `cover` in the front matter so Hexo can map them directly.
+* The Hexo permalink pattern relies on `slug`, keeping online URLs aligned with Notion entries.
+* Download images to `source/assets/notion/` and rewrite their paths in Markdown to `/assets/notion/...` so they are deployed with the site.
+* Pages beyond blog posts can live under `source/pages/` if needed; they are rendered like standard Hexo pages and deployed automatically.
